@@ -27,6 +27,11 @@ header .logo {
     font-weight: bold;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 nav ul {
     list-style-type: none;
     display: flex;
@@ -110,6 +115,15 @@ hr {
     justify-content: space-between;
 }
 
+.date {
+    width: 30%;
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    background-color: white; /* Light Blue */
+    color: black;
+}
+
 select {
     width: 30%;
     padding: 8px;
@@ -124,7 +138,7 @@ select {
     text-align: right;
 }
 
-.form-submit button {
+.form-submit a {
     background-color: #007BFF;
     color: white;
     border: none;
@@ -132,6 +146,7 @@ select {
     cursor: pointer;
     border-radius: 15px;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .form-submit button:hover {

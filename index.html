@@ -47,17 +47,10 @@
                         <option value="DBN">Durban Airport</option>
                     </select>
 
-                    <select name="pickup-date" required>
-                        <option value="">Pick-up Date</option>
-                        <option value="2024-09-29">2024-09-29</option>
-                        <option value="2024-09-30">2024-09-30</option>
-                    </select>
+                    <input type="date" id="pickup-date" name="pickup-date" class="date" required>
 
-                    <select name="pickup-time" required>
+                    <select id="pickup-time" name="pickup-time" required>
                         <option value="">Pick-up Time</option>
-                        <option value="08:00">08:00 AM</option>
-                        <option value="10:00">10:00 AM</option>
-                        <option value="12:00">12:00 PM</option>
                     </select>
                 </div>
             </div>
@@ -74,17 +67,10 @@
                         <option value="DBN">Durban Airport</option>
                     </select>
 
-                    <select name="dropoff-date" required>
-                        <option value="">Drop-off Date</option>
-                        <option value="2024-09-29">2024-09-29</option>
-                        <option value="2024-09-30">2024-09-30</option>
-                    </select>
+                    <input type="date" id="dropoff-date" name="dropoff-date" class="date" required>
 
-                    <select name="dropoff-time" required>
+                    <select id="dropoff-time" name="dropoff-time" required>
                         <option value="">Drop-off Time</option>
-                        <option value="08:00">08:00 AM</option>
-                        <option value="10:00">10:00 AM</option>
-                        <option value="12:00">12:00 PM</option>
                     </select>
                 </div>
             </div>
@@ -92,10 +78,12 @@
 
             <!-- Submit Button -->
             <div class="form-submit">
-                <button type="submit" onclick="window.location.href='car.html'">Search</button>
+                <a href="search.html">SEARCH</a>
             </div>
         </div>
     </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
