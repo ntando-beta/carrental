@@ -308,3 +308,191 @@ select {
 .select-btn:hover {
     background-color: #0056b3;
 }
+
+
+/* Car Details */
+/* Car Section Layout */
+.car-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+}
+
+/* Left Section */
+.car-left {
+    width: 55%;
+}
+
+.car-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #003874; /* Dark blue */
+}
+
+.car-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* Waiver Options */
+.waiver-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.waiver-box {
+    width: 48%; /* 50% size with space between */
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.waiver-box:hover {
+    background-color: #ccc;
+}
+
+.waiver-selected {
+    background-color: #007BFF; /* Blue when selected */
+    color: white;
+}
+
+/* Right Section */
+.car-right {
+    width: 40%;
+    padding-left: 20px;
+}
+
+.price-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Additional Services */
+.service-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.service-section h2 {
+    font-size: 18px;
+    color: #003874;
+    margin-bottom: 10px;
+}
+
+.service-option {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.service-option label {
+    font-size: 16px;
+    color: #333;
+}
+
+.service-option input {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Total Cost Section */
+.total-cost-section {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.total-cost-section h2 {
+    font-size: 18px;
+    color: #003874;
+    margin-bottom: 20px;
+}
+
+.total-price {
+    font-size: 22px;
+    color: #007BFF;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Dropdown for Rental Costs */
+.cost-dropdown {
+    margin-bottom: 20px;
+}
+
+.cost-dropdown h3 {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cost-dropdown ul {
+    display: none;
+    list-style: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.cost-dropdown.active ul {
+    display: block;
+}
+
+.cost-dropdown ul li {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cost-dropdown ul li span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Hover Effect */
+.cost-dropdown h3:hover {
+    background-color: #e0e0e0;
+}
+
+/* Total Price Calculation */
+.total-calculated {
+    font-size: 24px;
+    color: #003874;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .car-section {
+        flex-direction: column;
+    }
+
+    .car-left,
+    .car-right {
+        width: 100%;
+    }
+}

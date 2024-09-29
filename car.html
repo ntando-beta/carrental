@@ -5,6 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Your Car - Car Rental</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* General layout */
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 20px;
+            width: 100%;
+        }
+        .left-section{
+            width: 70%;
+            display: flex;
+        } 
+        .left-left-section {
+            width: 40%;
+        }
+        .right-right-section {
+            width: 60%;
+            padding-top: 40px;
+        }
+        .right-section {
+            width: 25%;
+        }
+
+        /* Car section and waiver/additional options */
+        .car-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .car-image {
+            width: 90%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 0;
+        }
+
+        /* Waivers */
+        .waiver-options {
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .waiver {
+            width: 48%;
+            height: calc(50% * (auto));
+            background-color: grey;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .waiver h2 {
+            font-size: small;
+        }
+
+        .waiver:hover {
+            background-color: lightgrey;
+        }
+        .waiver.selected {
+            background-color: blue;
+            color: white;
+        }
+
+        /* Additional options */
+        .option-section {
+            margin-bottom: 20px;
+        }
+        .option-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .option-item {
+            margin-bottom: 5px;
+        }
+
+        /* Price section */
+        .price-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            padding-bottom: 0;
+        }
+        .price-section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown-header {
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .total-cost {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .select-btn{
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,7 +139,6 @@
             </ul>
         </nav>
     </header>
-
     <!-- Pickup and Drop-off Section -->
     <section class="location-section">
         <div class="location-row">
@@ -64,6 +179,152 @@
             </div>
         </div>
     </section>
+
+    <div class="container">
+        <!-- Left Section: Car and Additional Options -->
+        <div class="left-section">
+            <div class="left-left-section">
+                <!-- Car Title and Image -->
+                <div class="car-title">BMW X5 (Automatic)</div>
+                <img class="car-image" src="car.jpg" alt="Car Image">
+        
+                <!-- Waivers Section -->
+                <div class="option-section">
+                    <div class="option-title">Choose Waiver:</div>
+                    <div class="waiver-options">
+                        <div class="waiver" id="waiver1"><h2>STANDARD WAIVER: </h2><p><b>R200</b>/day</p></div>
+                        <div class="waiver" id="waiver2"><h2>SUPER WAIVER: </h2><p><b>R500</b>/day</p></div>
+                    </div>
+                </div>
+            </div>
     
+            <div class="right-right-section">
+                <!-- Additional Waivers Section -->
+                <div class="option-section">
+                    <div class="option-title">Additional Waivers:</div>
+                    <div class="option-item">
+                        <input type="checkbox" id="hailWaiver"> Hail Waiver (R100)
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="tireWaiver"> Tire Waiver (R150)
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="glassWaiver"> Glass Waiver (R200)
+                    </div>
+                </div>
+        
+                <!-- Additional Services Section -->
+                <div class="option-section">
+                    <div class="option-title">Additional Services:</div>
+                    <div class="option-item">
+                        <input type="checkbox" id="additionalDriver"> Additional Driver (R50)
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="infantSeat"> Infant Carseat (R75)
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="gps"> GPS (R100)
+                    </div>
+                </div>
+        
+                <!-- Extended Services Section -->
+                <div class="option-section">
+                    <div class="option-title">Extended Services:</div>
+                    <div class="option-item">
+                        <input type="checkbox" id="crossNamibia"> Cross Border Namibia (R300)
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="crossSwaziland"> Cross Border Swaziland (R300)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right Section: Price Details -->
+        <div class="right-section">
+            <div class="price-section">
+                <h3>Total Cost</h3>
+    
+                <!-- Dropdown for Rental Cost -->
+                <div class="dropdown">
+                    <div class="dropdown-header" onclick="toggleDropdown('rentalCost')">Rental Cost</div>
+                    <div id="rentalCost" class="dropdown-content">
+                        <div>Base Rental Price: R1000</div>
+                        <div>Selected Waiver: R200</div>
+                    </div>
+                </div>
+    
+                <!-- Dropdown for Add-ons -->
+                <div class="dropdown">
+                    <div class="dropdown-header" onclick="toggleDropdown('addonsCost')">Add-ons</div>
+                    <div id="addonsCost" class="dropdown-content">
+                        <div>Hail Waiver: R100</div>
+                        <div>GPS: R100</div>
+                    </div>
+                </div>
+    
+                <!-- Dropdown for Other Rental Costs -->
+                <div class="dropdown">
+                    <div class="dropdown-header" onclick="toggleDropdown('otherRentalCost')">Other Rental Costs</div>
+                    <div id="otherRentalCost" class="dropdown-content">
+                        <div>Admin Fee: R155</div>
+                    </div>
+                </div>
+    
+                <!-- Total Cost Display -->
+                <div class="total-cost">
+                    Total Cost: R<output id="totalCost">1000</output>
+                </div>
+
+                <div>
+                    <!-- Button to proceed to checkout.html -->
+                    <a href="checkout.html"><button class="select-btn">Proceed to Checkout</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggling dropdown content
+        function toggleDropdown(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    
+        // Update total cost when options are selected
+        let totalCost = 1000; // Initial total cost
+        const updateCost = () => {
+            let additionalCost = 0;
+    
+            // Add cost for selected waivers and services
+            if (document.getElementById('waiver1').classList.contains('selected')) additionalCost += 200;
+            if (document.getElementById('waiver2').classList.contains('selected')) additionalCost += 500;
+            if (document.getElementById('hailWaiver').checked) additionalCost += 100;
+            if (document.getElementById('tireWaiver').checked) additionalCost += 150;
+            if (document.getElementById('glassWaiver').checked) additionalCost += 200;
+            if (document.getElementById('additionalDriver').checked) additionalCost += 50;
+            if (document.getElementById('infantSeat').checked) additionalCost += 75;
+            if (document.getElementById('gps').checked) additionalCost += 100;
+            if (document.getElementById('crossNamibia').checked) additionalCost += 300;
+            if (document.getElementById('crossSwaziland').checked) additionalCost += 300;
+    
+            // Update the displayed total cost
+            document.getElementById('totalCost').innerText = totalCost + additionalCost;
+        };
+    
+        // Add event listeners to checkboxes to trigger cost update
+        document.querySelectorAll('input[type="checkbox"]').forEach(item => {
+            item.addEventListener('change', updateCost);
+        });
+    
+        // Waiver selection
+        document.querySelectorAll('.waiver').forEach(waiver => {
+            waiver.addEventListener('click', function () {
+                document.querySelectorAll('.waiver').forEach(w => w.classList.remove('selected'));
+                this.classList.add('selected');
+                updateCost();
+            });
+        });
+    </script>
+
 </body>
 </html>
