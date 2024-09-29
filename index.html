@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">CarRental</div>
+        <nav>
+            <ul>
+                <li><a href="#">Rentals</a></li>
+                <li><a href="#">Transfer</a></li>
+                <li><a href="#">Fleet</a></li>
+                <li><a href="#">Branches</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><button class="nav-btn">Register</button></li>
+                <li><button class="nav-btn">Login</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Booking Form -->
+    <main>
+        <div class="booking-form">
+            <h2>Book a Vehicle</h2>
+
+            <!-- Radio Button (Assume Car Rental is pre-selected) -->
+            <div class="rental-type">
+                <label><input type="radio" name="rental" checked> Car Rental</label>
+                <label><input type="radio" name="rental"> Van Rental</label>
+            </div>
+            <hr>
+
+            <!-- Pickup Location, Date, and Time -->
+            <div class="form-section">
+                <h3>SELECT PICK-UP LOCATION</h3>
+                <div class="pickup-info">
+                    <select name="pickup-location" required>
+                        <option value="">Select Location</option>
+                        <option value="CT">Cape Town Airport</option>
+                        <option value="JHB">Johannesburg Airport</option>
+                        <option value="DBN">Durban Airport</option>
+                    </select>
+
+                    <select name="pickup-date" required>
+                        <option value="">Pick-up Date</option>
+                        <option value="2024-09-29">2024-09-29</option>
+                        <option value="2024-09-30">2024-09-30</option>
+                    </select>
+
+                    <select name="pickup-time" required>
+                        <option value="">Pick-up Time</option>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Drop Off Location, Date, and Time -->
+            <div class="form-section">
+                <h3>SELECT DROP-OFF LOCATION</h3>
+                <div class="pickup-info">
+                    <select name="dropoff-location" required>
+                        <option value="">Select Location</option>
+                        <option value="CT">Cape Town Airport</option>
+                        <option value="JHB">Johannesburg Airport</option>
+                        <option value="DBN">Durban Airport</option>
+                    </select>
+
+                    <select name="dropoff-date" required>
+                        <option value="">Drop-off Date</option>
+                        <option value="2024-09-29">2024-09-29</option>
+                        <option value="2024-09-30">2024-09-30</option>
+                    </select>
+
+                    <select name="dropoff-time" required>
+                        <option value="">Drop-off Time</option>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Submit Button -->
+            <div class="form-submit">
+                <button type="submit">Search</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Car - Car Rental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">CarRental</div>
+        <nav>
+            <ul>
+                <li><a href="#">Rentals</a></li>
+                <li><a href="#">Transfer</a></li>
+                <li><a href="#">Fleet</a></li>
+                <li><a href="#">Branches</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><button class="nav-btn">Register</button></li>
+                <li><button class="nav-btn">Login</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Pickup and Drop-off Section -->
+    <section class="location-section">
+        <div class="location-row">
+            <div class="single-row">
+                <h3>PICK-UP LOCATION:</h3>
+                <div>
+                    <select name="pickup-location" id="pickup-location">
+                        <option value="CT">Cape Town Airport</option>
+                        <option value="JHB">Johannesburg Airport</option>
+                        <option value="DBN">Durban Airport</option>
+                    </select>
+                    <select name="dropoff-date" required>
+                        <option value="">Drop-off Date</option>
+                        <option value="2024-09-29">2024-09-29</option>
+                        <option value="2024-09-30">2024-09-30</option>
+                    </select>
+                    <select name="dropoff-time" required>
+                        <option value="">Drop-off Time</option>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="single-row">
+                <h3>DROP-OFF LOCATION: </h3>
+                <div>
+                    <select name="dropoff-location" id="dropoff-location">
+                        <option value="CT">Cape Town Airport</option>
+                        <option value="JHB">Johannesburg Airport</option>
+                        <option value="DBN">Durban Airport</option>
+                    </select>
+                    <select name="dropoff-date" required>
+                        <option value="">Drop-off Date</option>
+                        <option value="2024-09-29">2024-09-29</option>
+                        <option value="2024-09-30">2024-09-30</option>
+                    </select>
+                    <select name="dropoff-time" required>
+                        <option value="">Drop-off Time</option>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Selection Title -->
+    <section class="car-selection-title">
+        <h1>Choose Your Car</h1>
+        <h3>Please choose your car and the applicable waiver</h3>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="car-selection-content">
+        <div class="filters-section">
+            <h2>FILTER</h2>
+            <!-- Filters & Sorting Options (Not functional yet) -->
+            <div class="filters">
+                <label for="car-type">Car Type:</label>
+                <select name="car-type" id="car-type">
+                    <option value="all">All Types</option>
+                    <option value="suv">SUV</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="hatchback">Hatchback</option>
+                </select>
+                
+                <label for="transmission">Transmission:</label>
+                <select name="transmission" id="transmission">
+                    <option value="all">All</option>
+                    <option value="automatic">Automatic</option>
+                    <option value="manual">Manual</option>
+                </select>
+            </div>
+            <h2>SORT</h2>
+            <div class="filters">
+                <select name="price-sort" id="price-sort">
+                    <option value="low-to-high">Low to High</option>
+                    <option value="high-to-low">High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="cars-section">
+            <div class="car-card" data-type="suv" data-transmission="automatic" data-price="1000">
+                <h2>BMW X5 (Automatic)</h2>
+                <img src="car.jpg" alt="BMW X5">
+                <div class="waiver-pricing">
+                    <div><h2>STANDARD WAIVER: </h2><p><b>R800</b>/day</p></div>
+                    <div><h2>SUPER WAIVER: </h2><p><b>R1000</b>/day</p></div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="car-card" data-type="suv" data-transmission="manual" data-price="1000">
+                <h2>BMW X5 (Manual)</h2>
+                <img src="car.jpg" alt="BMW X5">
+                <div class="waiver-pricing">
+                    <div><h2>STANDARD WAIVER: </h2><p><b>R800</b>/day</p></div>
+                    <div><h2>SUPER WAIVER: </h2><p><b>R1000</b>/day</p></div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="car-card" data-type="sedan" data-transmission="automatic" data-price="1000">
+                <h2>BMW 325i (Automatic)</h2>
+                <img src="car.jpg" alt="BMW X5">
+                <div class="waiver-pricing">
+                    <div><h2>STANDARD WAIVER: </h2><p><b>R800</b>/day</p></div>
+                    <div><h2>SUPER WAIVER: </h2><p><b>R1000</b>/day</p></div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            
+            <!-- Add more car cards here -->
+        </div>
+        
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const carCards = document.querySelectorAll(".car-card");
+            const carTypeFilter = document.getElementById("car-type");
+            const transmissionFilter = document.getElementById("transmission");
+            const priceSort = document.getElementById("price-sort");
+    
+            // Function to filter cars
+            function filterCars() {
+                const selectedCarType = carTypeFilter.value;
+                const selectedTransmission = transmissionFilter.value;
+    
+                carCards.forEach(car => {
+                    const carType = car.getAttribute("data-type");
+                    const transmission = car.getAttribute("data-transmission");
+    
+                    let matchesCarType = (selectedCarType === "all" || selectedCarType === carType);
+                    let matchesTransmission = (selectedTransmission === "all" || selectedTransmission === transmission);
+    
+                    // Show or hide car based on filter matches
+                    if (matchesCarType && matchesTransmission) {
+                        car.style.display = "block";
+                    } else {
+                        car.style.display = "none";
+                    }
+                });
+            }
+    
+            // Function to sort cars by price
+            function sortCars() {
+                const carsSection = document.querySelector(".cars-section");
+                const sortedCars = Array.from(carCards).sort((a, b) => {
+                    const priceA = parseInt(a.getAttribute("data-price"));
+                    const priceB = parseInt(b.getAttribute("data-price"));
+    
+                    return priceSort.value === "low-to-high" ? priceA - priceB : priceB - priceA;
+                });
+    
+                // Clear current cars and append sorted cars
+                carsSection.innerHTML = "";
+                sortedCars.forEach(car => {
+                    carsSection.appendChild(car);
+                });
+            }
+    
+            // Event listeners for filters and sorting
+            carTypeFilter.addEventListener("change", filterCars);
+            transmissionFilter.addEventListener("change", filterCars);
+            priceSort.addEventListener("change", sortCars);
+    
+            // Initial display
+            filterCars();  // Filter cars when the page loads
+            sortCars();    // Sort cars when the page loads
+        });
+    </script>
+    
+</body>
+</html>
